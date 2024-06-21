@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: "stylsync",
   webDir: "out",
   server: {
-    url: "https://stylsync-app.vercel.app/",
+    url: "https://stylsync-app.vercel.app",
     cleartext: true,
   },
 };
