@@ -14,6 +14,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -34,6 +42,7 @@ const questrial_font = Questrial({
   variable: "--font-questrial",
 });
 export default function Home() {
+  const { setTheme } = useTheme();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,7 +57,7 @@ export default function Home() {
     console.log(values);
   }
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-center bg-white gap-16">
+    <main className="flex min-h-screen w-full flex-col items-center justify-center bg-white dark:bg-gray-900 gap-16">
       <div className="flex flex-col items-center gap-1">
         <p className={`text-5xl bebas_neue ${bebas_neue_font.variable}`}>
           StylSync
@@ -96,6 +105,28 @@ export default function Home() {
             </Button>
           </form>
         </Form>
+        <div className="absolute bottom-5 left-5">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              <DropdownMenuItem onClick={() => setTheme("light")}>
+                Light
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
+                Dark
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>
+                System
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </main>
   );
