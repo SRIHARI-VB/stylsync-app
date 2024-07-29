@@ -28,8 +28,8 @@ const nav = [
 const CustomerHome = () => {
   return (
     <div className="h-lvh relative bg-white">
-      <div className="flex flex-col h-full px-10 pb-[6em] pt-3 gap-3">
-        <div className="flex justify-between">
+      <div className="flex flex-col h-full px-6 pb-[6em] pt-3 gap-3">
+        <div className="flex w-full justify-between">
           <p
             className="text-5xl"
             style={{ fontFamily: "Bebas Neue, sans-serif" }}
@@ -37,10 +37,10 @@ const CustomerHome = () => {
             STYLSYNC
           </p>
         </div>
-        <div className="w-full relative h-1/3 flex justify-between">
+        <div className="w-full relative h-1/3 flex gap-2">
           <img
             src="/assets/poster.png"
-            className=" h-full rounded-xl w-[220px] shadow-lg drop-shadow-lg object-cover"
+            className=" h-full rounded-xl w-3/6 shadow-lg drop-shadow-lg object-cover"
             alt="Poster"
           />
           <Button
@@ -61,7 +61,7 @@ const CustomerHome = () => {
           />
 
           <div
-            className="w-[200px] h-full rounded-xl relative p-3"
+            className="w-3/6 h-full rounded-xl relative p-3"
             style={{
               background: "linear-gradient(to bottom right, #F4ECFF, #AE73F9)",
             }}
