@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">stylsync-app</string>
+    <string name="title_activity_main">stylsync-app</string>
+    <string name="package_name">com.mint.stylsync</string>
+    <string name="custom_url_scheme">com.mint.stylsync</string>
+</resources>
