@@ -5,6 +5,10 @@ const config: CapacitorConfig = {
   appName: "stylsync-app",
   webDir: "build",
   bundledWebRuntime: false,
+  server: {
+    url: "https://mint-stylsync-app.vercel.app",
+    cleartext: true,
+  },
 };
 
 export default config;
