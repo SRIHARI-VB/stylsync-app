@@ -36,19 +36,11 @@ const CustomerHome = () => {
           >
             STYLSYNC
           </p>
-          <div>
-            <img
-              src="/assets/message.svg"
-              alt="message"
-              width={44}
-              height={44}
-            />
-          </div>
         </div>
-        <div className=" relative h-1/3 flex gap-3">
+        <div className="w-full relative h-1/3 flex justify-between">
           <img
             src="/assets/poster.png"
-            className=" h-full rounded-xl shadow-lg drop-shadow-lg object-cover"
+            className=" h-full rounded-xl w-[220px] shadow-lg drop-shadow-lg object-cover"
             alt="Poster"
           />
           <Button
@@ -69,7 +61,7 @@ const CustomerHome = () => {
           />
 
           <div
-            className="w-full h-full rounded-xl relative p-3"
+            className="w-[200px] h-full rounded-xl relative p-3"
             style={{
               background: "linear-gradient(to bottom right, #F4ECFF, #AE73F9)",
             }}
