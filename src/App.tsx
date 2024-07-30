@@ -6,6 +6,10 @@ import ChooseDomain from "./pages/ChooseDomain";
 import CustomerHome from "./pages/customer/CustomerHome";
 import DesignerHome from "./pages/designer/DesignerHome";
 import CompanyHome from "./pages/company/CompanyHome";
+import SearchPage from "./pages/customer/SearchPage";
+import BagPage from "./pages/customer/BagPage";
+import ShopPage from "./pages/customer/ShopPage";
+import ProfilePage from "./pages/customer/ProfilePage";
 
 export default function App() {
   return (
@@ -15,6 +19,10 @@ export default function App() {
       <Route path="/customerHome" element={<CustomerHome />} />
       <Route path="/designerHome" element={<DesignerHome />} />
       <Route path="/companyHome" element={<CompanyHome />} />
+      <Route path="/search" element={<SearchPage />} />
+        <Route path="/bag" element={<BagPage />} />
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
     </Routes>
   );
 }

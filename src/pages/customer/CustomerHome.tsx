@@ -1,29 +1,7 @@
 import { Button } from "antd";
 import { MessageCircleMore } from "lucide-react";
 import React from "react";
-
-const nav = [
-  {
-    path: "/assets/home.svg",
-    name: "Home",
-  },
-  {
-    path: "/assets/search.svg",
-    name: "Search",
-  },
-  {
-    path: "/assets/bag.svg",
-    name: "Bag",
-  },
-  {
-    path: "/assets/cart.svg",
-    name: "Shop",
-  },
-  {
-    path: "/assets/profile.svg",
-    name: "Profile",
-  },
-];
+import BottomNavBar from "../../components/BottomNavBar";
 
 const CustomerHome = () => {
   return (
@@ -127,37 +105,7 @@ const CustomerHome = () => {
           </div>
         </div>
       </div>
-      <div
-        style={{ boxShadow: "0 -8px 32px -4px rgba(0, 0, 0, 0.1)" }}
-        className="bg-white p-5 absolute bottom-0 w-full h-[5em] rounded-t-3xl"
-      >
-        <div className="flex w-full h-full justify-between">
-          {nav.map((item) => {
-            return (
-              <div
-                key={item.name}
-                className="flex flex-col justify-center items-center gap-1"
-              >
-                <img
-                  className=""
-                  src={item.path}
-                  alt={item.name}
-                  height={28}
-                  width={28}
-                />
-                <p
-                  className="text-md"
-                  style={{
-                    color: item.name === "Home" ? "#9F57F9" : "#9B9B9B",
-                  }}
-                >
-                  {item.name}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <BottomNavBar name="Home" />
     </div>
   );
 };
