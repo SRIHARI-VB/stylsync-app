@@ -116,7 +116,7 @@ const nav = [
   },
 ];
 
-const BottomNavBar = ({ name }: { name: string }) => {
+const BottomNavBar = ({ name }: { name?: string }) => {
   return (
     <div
       style={{ boxShadow: "0 -8px 32px -4px rgba(0, 0, 0, 0.1)" }}

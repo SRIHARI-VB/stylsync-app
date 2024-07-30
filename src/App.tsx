@@ -10,6 +10,7 @@ import SearchPage from "./pages/customer/SearchPage";
 import BagPage from "./pages/customer/BagPage";
 import ShopPage from "./pages/customer/ShopPage";
 import ProfilePage from "./pages/customer/ProfilePage";
+import DesignerProfilePage from "./pages/DesignerProfilePage";
 
 export default function App() {
   return (
@@ -20,9 +21,10 @@ export default function App() {
       <Route path="/designerHome" element={<DesignerHome />} />
       <Route path="/companyHome" element={<CompanyHome />} />
       <Route path="/search" element={<SearchPage />} />
-        <Route path="/bag" element={<BagPage />} />
-        <Route path="/shop" element={<ShopPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/designer/:designerId" element={<DesignerProfilePage />} />
+      <Route path="/bag" element={<BagPage />} />
+      <Route path="/shop" element={<ShopPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
     </Routes>
   );
 }

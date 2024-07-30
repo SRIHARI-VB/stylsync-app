@@ -153,6 +153,10 @@ const SearchPage = () => {
     }
   };
 
+  const handleDesignerClick = (designerName: string) => {
+    navigate(`/designer/${designerName}`);
+  };
+
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => handleSwipe("Left"),
     onSwipedRight: () => handleSwipe("Right"),
@@ -240,7 +244,8 @@ const SearchPage = () => {
                   {designersData.map((designer, index) => (
                     <div
                       key={index}
-                      className="border rounded-lg p-4 flex items-center"
+                      className="border rounded-lg p-4 flex items-center cursor-pointer"
+                      onClick={() => handleDesignerClick(designer.designerName)}
                     >
                       <img
                         src={designer.image}
