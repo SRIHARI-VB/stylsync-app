@@ -71,7 +71,7 @@ const ChooseDomain = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-center items-center px-6 py-10">
+    <div className="min-h-screen bg-white flex flex-col justify-center items-center px-6 py-10 overflow-hidden">
       <p
         className="text-6xl font-semibold mb-10"
         style={{ fontFamily: "Bebas Neue, sans-serif" }}
@@ -88,7 +88,7 @@ const ChooseDomain = () => {
           </p>
         </div>
       </div>
-      <div className="w-full flex flex-wrap items-center justify-center gap-4">
+      <div className="w-full  flex flex-wrap items-center justify-center gap-4">
         <DomainCard
           imageSrc="/assets/customer.jpeg"
           title="Customer"
