@@ -71,7 +71,7 @@ const ChooseDomain = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white flex w-full flex-col justify-center items-center px-2 py-10">
+    <div className="min-h-screen bg-white flex flex-col justify-center items-center px-2 py-10 overflow-hidden">
       <p
         className="text-6xl font-semibold mb-10"
         style={{ fontFamily: "Bebas Neue, sans-serif" }}
@@ -79,7 +79,7 @@ const ChooseDomain = () => {
         STYLSYNC
       </p>
       <div className="w-full max-w-md text-center mb-10">
-        <div className="bg-[#9F57F9] p-4 rounded-2xl shadow-lg">
+        <div className="bg-[#9F57F9] p-6 rounded-2xl shadow-lg">
           <p
             className="text-3xl font-bold text-white"
             style={{ fontFamily: "Questrial, sans-serif" }}
@@ -88,7 +88,7 @@ const ChooseDomain = () => {
           </p>
         </div>
       </div>
-      <div className="w-full flex flex-wrap items-center justify-center gap-4">
+      <div className="w-full  flex flex-wrap items-center justify-center gap-4">
         <DomainCard
           imageSrc="/assets/customer.jpeg"
           title="Customer"
