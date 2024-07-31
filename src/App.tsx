@@ -11,6 +11,7 @@ import BagPage from "./pages/customer/BagPage";
 import ShopPage from "./pages/customer/ShopPage";
 import ProfilePage from "./pages/customer/ProfilePage";
 import DesignerProfilePage from "./pages/DesignerProfilePage";
+import ProductDetails from "./pages/customer/ProductDetails";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
       <Route path="/bag" element={<BagPage />} />
       <Route path="/shop" element={<ShopPage />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/product/:productId" element={<ProductDetails />} />
     </Routes>
   );
 }

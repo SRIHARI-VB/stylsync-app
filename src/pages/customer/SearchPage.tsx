@@ -137,6 +137,44 @@ const boutiquesData = [
   // Add more boutique data as needed
 ];
 
+const Card = ({ card }:any) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/product/${card.accountName}`);
+  };
+
+  return (
+    <div
+      onClick={handleCardClick}
+      className="border rounded-lg p-4 flex flex-col cursor-pointer"
+    >
+      <img
+        src={card.image}
+        alt={card.productName}
+        className="w-full h-32 object-cover rounded-lg"
+      />
+      <div className="flex justify-between items-center mt-2">
+        <div className="flex items-center gap-1">
+          {[...Array(5)].map((_, i) => (
+            <Star
+              key={i}
+              size={16}
+              color={i < card.rating ? "#FFD700" : "#e0e0e0"}
+            />
+          ))}
+        </div>
+        <Heart size={16} color="#9B9B9B" />
+      </div>
+      <div className="mt-2 flex-1">
+        <h3 className="text-lg font-semibold">{card.productName}</h3>
+        <p className="text-sm text-gray-500">{card.accountName}</p>
+      </div>
+      <p className="text-lg font-semibold mt-2">{card.price}</p>
+    </div>
+  );
+};
+
 const SearchPage = () => {
   const [selectedTab, setSelectedTab] = useState("1");
   const navigate = useNavigate();
@@ -178,13 +216,14 @@ const SearchPage = () => {
           </div>
           <div className="h-12 w-full">
             <Radio.Group
+              optionType="button"
               value={selectedTab}
               onChange={handleChange}
               className="w-full h-full flex border-[#9F57F9] "
             >
               <Radio.Button
                 value="1"
-                className="h-12 flex-1 text-lg flex justify-center items-center"
+                className="h-12 flex-1 text-lg flex  justify-center items-center"
               >
                 Designs
               </Radio.Button>
@@ -204,38 +243,8 @@ const SearchPage = () => {
             <div className="mt-4 flex-1 overflow-auto">
               {selectedTab === "1" && (
                 <div className="grid grid-cols-2 gap-4">
-                  {cardData.map((card, index) => (
-                    <div
-                      key={index}
-                      className="border rounded-lg p-4 flex flex-col"
-                    >
-                      <img
-                        src={card.image}
-                        alt={card.productName}
-                        className="w-full h-32 object-cover rounded-lg"
-                      />
-                      <div className="flex justify-between items-center mt-2">
-                        <div className="flex items-center gap-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Star
-                              key={i}
-                              size={16}
-                              color={i < card.rating ? "#FFD700" : "#e0e0e0"}
-                            />
-                          ))}
-                        </div>
-                        <Heart size={16} color="#9B9B9B" />
-                      </div>
-                      <div className="mt-2 flex-1">
-                        <h3 className="text-lg font-semibold">
-                          {card.productName}
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          {card.accountName}
-                        </p>
-                      </div>
-                      <p className="text-lg font-semibold mt-2">{card.price}</p>
-                    </div>
+                  {cardData.map((card) => (
+                    <Card key={card.accountName} card={card} />
                   ))}
                 </div>
               )}

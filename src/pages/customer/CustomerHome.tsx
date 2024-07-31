@@ -8,6 +8,7 @@ import {
   Image,
 } from "antd";
 import BottomNavBar from "../../components/BottomNavBar";
+import { Heart, Star } from "lucide-react";
 
 const config: ThemeConfig = {
   token: {
@@ -21,6 +22,86 @@ const outfitOptions = [
   { label: "Jeans", value: "jeans" },
   { label: "Jacket", value: "jacket" },
 ];
+
+const cardData = [
+  {
+    imageSrc: "https://via.placeholder.com/150",
+    productName: "Casual Shirt",
+    reviews: 4,
+    price: 29.99,
+    discountPrice: 19.99,
+  },
+  {
+    imageSrc: "https://via.placeholder.com/150",
+    productName: "Jeans",
+    reviews: 5,
+    price: 49.99,
+  },
+  {
+    imageSrc: "https://via.placeholder.com/150",
+    productName: "Jacket",
+    reviews: 3,
+    price: 89.99,
+    discountPrice: 69.99,
+  },
+  {
+    imageSrc: "https://via.placeholder.com/150",
+    productName: "Sweater",
+    reviews: 4,
+    price: 39.99,
+  },
+  // Add more items as needed
+];
+
+const Card = ({
+  imageSrc,
+  productName,
+  reviews,
+  price,
+  discountPrice,
+}: {
+  imageSrc: string;
+  productName: string;
+  reviews: number;
+  price: number;
+  discountPrice?: number;
+}) => (
+  <div className="w-[200px] h-[350px] rounded-xl shadow-lg bg-white flex-shrink-0 relative overflow-hidden">
+    <img
+      src={imageSrc}
+      className="w-full h-2/3 object-cover"
+      alt={productName}
+    />
+    <div className="p-2 flex flex-col justify-between h-1/3">
+      <p className="text-lg font-semibold">{productName}</p>
+      <div className="flex items-center">
+        <div className="flex text-yellow-500">
+          {[...Array(5)].map((_, index) => (
+            <Star
+              key={index}
+              className={index < reviews ? "text-yellow-500" : "text-gray-300"}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="flex justify-between items-center">
+        {discountPrice ? (
+          <div className="flex flex-col items-start">
+            <p className="text-lg font-semibold text-red-500">{`$${discountPrice.toFixed(
+              2
+            )}`}</p>
+            <p className="text-sm line-through text-gray-500">{`$${price.toFixed(
+              2
+            )}`}</p>
+          </div>
+        ) : (
+          <p className="text-lg font-semibold">{`$${price.toFixed(2)}`}</p>
+        )}
+        <Heart className="text-red-500 text-xl" />
+      </div>
+    </div>
+  </div>
+);
 
 const CustomerHome = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -119,13 +200,17 @@ const CustomerHome = () => {
               >
                 Trending
               </p>
-              <div className=" flex flex-row overflow-x-auto gap-4 py-4">
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
+              <div className="flex flex-row overflow-x-auto gap-4 py-4">
+                {cardData.map((item, index) => (
+                  <Card
+                    key={index}
+                    imageSrc={item.imageSrc}
+                    productName={item.productName}
+                    reviews={item.reviews}
+                    price={item.price}
+                    discountPrice={item.discountPrice}
+                  />
+                ))}
               </div>
             </div>
             <div className="flex flex-col gap-4">
@@ -135,13 +220,17 @@ const CustomerHome = () => {
               >
                 Hot Collection
               </p>
-              <div className=" flex flex-row overflow-x-auto gap-4 py-4">
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
-                <div className="w-[200px] h-[200px] rounded-xl shadow-lg bg-white flex-shrink-0"></div>
+              <div className="flex flex-row overflow-x-auto gap-4 py-4">
+                {cardData.map((item, index) => (
+                  <Card
+                    key={index}
+                    imageSrc={item.imageSrc}
+                    productName={item.productName}
+                    reviews={item.reviews}
+                    price={item.price}
+                    discountPrice={item.discountPrice}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -193,8 +282,7 @@ const CustomerHome = () => {
             <Button
               type="primary"
               className="w-full rounded-3xl"
-              onClick={() => {
-              }}
+              onClick={() => {}}
             >
               Start Customizing
             </Button>
