@@ -71,39 +71,41 @@ const ChooseDomain = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-center items-center px-6 py-10 overflow-hidden">
-      <p
-        className="text-6xl font-semibold mb-10"
-        style={{ fontFamily: "Bebas Neue, sans-serif" }}
-      >
-        STYLSYNC
-      </p>
-      <div className="w-full max-w-md text-center mb-10">
-        <div className="bg-[#9F57F9] p-6 rounded-2xl shadow-lg">
-          <p
-            className="text-3xl font-bold text-white"
-            style={{ fontFamily: "Questrial, sans-serif" }}
-          >
-            Opt Your Domain
-          </p>
+    <div className="h-lvh bg-white overflow-hidden">
+      <div className="flex h-full flex-col justify-center items-center px-6 py-10 ">
+        <p
+          className="text-6xl font-semibold mb-10"
+          style={{ fontFamily: "Bebas Neue, sans-serif" }}
+        >
+          STYLSYNC
+        </p>
+        <div className="w-full max-w-md text-center mb-10">
+          <div className="bg-[#9F57F9] p-6 rounded-2xl shadow-lg">
+            <p
+              className="text-3xl font-bold text-white"
+              style={{ fontFamily: "Questrial, sans-serif" }}
+            >
+              Opt Your Domain
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="w-full  flex flex-wrap items-center justify-center gap-4">
-        <DomainCard
-          imageSrc="/assets/customer.jpeg"
-          title="Customer"
-          onClick={() => navigate("/customerHome")}
-        />
-        <DomainCard
-          imageSrc="/assets/designer.jpeg"
-          title="Designer"
-          onClick={() => navigate("/designerHome")}
-        />
-        <DomainCard
-          imageSrc="/assets/company.jpeg"
-          title="Company"
-          onClick={() => navigate("/companyHome")}
-        />
+        <div className="w-full  flex flex-wrap items-center justify-center gap-4">
+          <DomainCard
+            imageSrc="/assets/customer.jpeg"
+            title="Customer"
+            onClick={() => navigate("/customerHome")}
+          />
+          <DomainCard
+            imageSrc="/assets/designer.jpeg"
+            title="Designer"
+            onClick={() => navigate("/designerHome")}
+          />
+          <DomainCard
+            imageSrc="/assets/company.jpeg"
+            title="Company"
+            onClick={() => navigate("/companyHome")}
+          />
+        </div>
       </div>
     </div>
   );
